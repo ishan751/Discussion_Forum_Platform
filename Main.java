@@ -303,7 +303,6 @@ public class Main {
                         JOptionPane.showMessageDialog(null, "There is no forum dedicated to this topic", "Edit a Post/Comment", JOptionPane.ERROR_MESSAGE);
                     }
 
-
                 }
                 if (teachermen.equals(teacherOption[7])) {
                     //Delete a Post/Comment
@@ -337,7 +336,7 @@ public class Main {
 
                             }
                             if (commentPost == 1) {
-                                postNum = JOptionPane.showInputDialog(null, "What comment would you like to delete? give an integer to represent the comment number", "Delete a Comment", JOptionPane.QUESTION_MESSAGE);
+                                commentNum = JOptionPane.showInputDialog(null, "What comment would you like to delete? give an integer to represent the comment number", "Delete a Comment", JOptionPane.QUESTION_MESSAGE);
                                 int commentNumber = Integer.parseInt(commentNum);
                                 while (!(commentNumber > 0 && commentNumber <= database.get(val).getPosts().
                                         get(postNumber - 1).getComments().size()+1)) {

@@ -21,6 +21,18 @@ public class Forum implements java.io.Serializable {
         this.posts.add(post);
     }
 
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public void setTopicName(String topicName) {
+        this.topicName = topicName;
+    }
+
+    public void setPosts(ArrayList<Post> posts) {
+        this.posts = posts;
+    }
+
     public String getTopicName() {
         return topicName;
     }

@@ -25,9 +25,9 @@ class Server {
             if (input.available() == 0) {
                 return new ArrayList<>();
             } else {
-                JOptionPane.showMessageDialog(null, "About to see the forum!", "Importing a File", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "About to see the forum!", "Importing a File", JOptionPane.PLAIN_MESSAGE);
                 ArrayList<Forum> forum = (ArrayList<Forum>) in.readObject();
-                JOptionPane.showMessageDialog(null, forum, "Importing a File", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, forum, "Importing a File", JOptionPane.PLAIN_MESSAGE);
                 in.close();
                 file.close();
                 forumval = forum;
@@ -52,7 +52,7 @@ class Server {
         while(true){
             try{
                 Socket socket = serverSocket.accept();
-                JOptionPane.showMessageDialog(null, "Client Connected", "Importing a File", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Client Connected", "Connection", JOptionPane.INFORMATION_MESSAGE);
                 new ServerTh(socket).start();
             } catch (Exception e){
                 e.printStackTrace();
@@ -73,13 +73,11 @@ class ServerTh extends Thread{
 
             Object[] valued = (Object[]) objectInputStream.readObject();
             while (valued != null) {
-                JOptionPane.showMessageDialog(null, valued, "Received from client!", JOptionPane.PLAIN_MESSAGE);
 
                 Object response = sense(valued);
 
                 objectOutputStream.writeObject(response);
                 objectOutputStream.flush();
-                JOptionPane.showMessageDialog(null, response.toString(), "Sent to client!", JOptionPane.PLAIN_MESSAGE);
                 valued = (Object[]) objectInputStream.readObject();
             }
 
@@ -352,17 +350,7 @@ class ServerTh extends Thread{
 
             case 3:
                 String topicName = (String) inputter[3];
-                JOptionPane.showMessageDialog(null,Server.database, "Server", JOptionPane.PLAIN_MESSAGE);
-                boolean found = false;
-                for (int i = 0; i < Server.database.size(); i++) {
-                    if (Server.database.get(i).getTopicName().equalsIgnoreCase(topicName)) {
-                        found = true;
-                        return "Database:" + (Server.database.get(i).toString());
-
-
-                    }
-                }
-                return "There is no forum dedicated to this topic.";
+                return viewForum(topicName);
             case 4:
                 sort = (String) inputter[1];
                 if(sort.equalsIgnoreCase("teacher")){
@@ -425,7 +413,7 @@ class ServerTh extends Thread{
                         String name = (String) inputter[5];
                         String commentbody = (String) inputter[6];
                         editComment(topicName, name, commentbody, postNumber, commentNumber);
-                        return new Object[]{topicName};
+                        return editComment(topicName, name, commentbody, postNumber, commentNumber);
                     }
                 } else {
                     writeForum(Server.database, "forum.db");

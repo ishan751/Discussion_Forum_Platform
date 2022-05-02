@@ -10,7 +10,7 @@ class Client {
 
     public Client() {
         try {
-            this.socket = new Socket("localhost", 8888);
+            this.socket = new Socket("localhost", 7777);
             if(this.socket != null){
                 this.objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
                 this.objectInputStream = new ObjectInputStream(socket.getInputStream());
