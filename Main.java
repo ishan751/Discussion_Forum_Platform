@@ -104,9 +104,9 @@ public class Main {
         String[] editMenu = {"Edit a Post","Edit a Comment"};
         String[] deleteMenu = {"Delete a Post", "Delete a Comment"};
         database = loadForum("forum.db");
-        String[] teacherOption = {"0.Logout", "1. Create a Forum", "2. View a Forum", "3. Create a Post", "4. Reply to a Post",
+        String[] studentOption = {"0.Logout", "1. Create a Forum", "2. View a Forum", "3. Create a Post", "4. Reply to a Post",
                 "5.Edit Login Info", "6.Delete Login Info", "7.Grade Students"};
-        String[] studentOption = {"0.Logout", "1. Create a Forum", "2. View a Forum", "3.Delete a Forum",
+        String[] teacherOption = {"0.Logout", "1. Create a Forum", "2. View a Forum", "3.Delete a Forum",
                 "4. Create a Post", "5. Reply to a Post", "6. Edit a Post/Comment", "7. Delete a Post/Comment",
                 "8.Edit Login Info", "9.Delete Login Info", "10.Grade Students"};
 
@@ -387,7 +387,7 @@ public class Main {
         }
         if (player.getRole().equalsIgnoreCase("student")) {
             while (true) {
-                String studentmen = (String) JOptionPane.showInputDialog(null, "Select your action", "Menu", JOptionPane.QUESTION_MESSAGE, null, teacherOption, teacherOption[0]);
+                String studentmen = (String) JOptionPane.showInputDialog(null, "Select your action", "Menu", JOptionPane.QUESTION_MESSAGE, null, studentOption, teacherOption[0]);
 
                 if (studentmen.equals(teacherOption[0])) {
                     Object [] input = {1,"teacher",1};
