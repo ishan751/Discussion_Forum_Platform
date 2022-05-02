@@ -107,7 +107,7 @@ public class Main {
         String[] deleteMenu = {"Delete a Post", "Delete a Comment"};
         database = loadForum("forum.db");
         String[] studentOption = {"0.Logout", "1. Create a Forum", "2. View a Forum", "3. Create a Post", "4. Reply to a Post",
-                "5.Edit Login Info", "6.Delete Login Info", "7.Grade Students"};
+                "5.Edit Login Info", "6.Delete Login Info", "7.View Grades"};
         String[] teacherOption = {"0.Logout", "1. Create a Forum", "2. View a Forum", "3.Delete a Forum",
                 "4. Create a Post", "5. Reply to a Post", "6. Edit a Post/Comment", "7. Delete a Post/Comment",
                 "8.Edit Login Info", "9.Delete Login Info", "10.Grade Students"};
